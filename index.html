@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张三 - 个人学术主页</title>
+    <title>Zeyuan Niu - Academic Homepage</title>
     <style>
         * {
             margin: 0;
@@ -32,7 +32,7 @@
             min-height: 100vh;
         }
 
-        /* 导航栏 */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -86,14 +86,14 @@
             width: 100%;
         }
 
-        /* 主容器 */
+        /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 6rem 2rem 2rem;
         }
 
-        /* 个人简介部分 */
+        /* Hero Section */
         .hero {
             display: grid;
             grid-template-columns: 300px 1fr;
@@ -169,7 +169,7 @@
             color: var(--primary-color);
         }
 
-        /* 部分标题 */
+        /* Section Styles */
         .section {
             margin-bottom: 4rem;
             opacity: 0;
@@ -206,7 +206,7 @@
             border-radius: 2px;
         }
 
-        /* 卡片样式 */
+        /* Card Styles */
         .card {
             background: var(--bg-card);
             backdrop-filter: blur(10px);
@@ -222,7 +222,7 @@
             box-shadow: var(--shadow-lg);
         }
 
-        /* 教育经历 */
+        /* Education */
         .education-item {
             display: flex;
             justify-content: space-between;
@@ -249,7 +249,7 @@
             white-space: nowrap;
         }
 
-        /* 研究兴趣 */
+        /* Research Interests */
         .research-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -274,7 +274,7 @@
             font-size: 1.25rem;
         }
 
-        /* 论文列表 */
+        /* Publications */
         .publication {
             padding: 1.5rem;
             margin-bottom: 1rem;
@@ -298,6 +298,10 @@
         .publication-authors {
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
+        }
+
+        .publication-authors strong {
+            color: var(--primary-color);
         }
 
         .publication-venue {
@@ -326,42 +330,120 @@
             color: white;
         }
 
-        /* 项目展示 */
-        .project {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
+        /* Research Experience */
+        .experience-item {
             margin-bottom: 2rem;
-        }
-
-        .project-img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 15px;
             box-shadow: var(--shadow);
+            border-top: 3px solid var(--primary-color);
         }
 
-        .project-content h3 {
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
             color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
+        .experience-date {
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
-        .tag {
+        .experience-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .experience-list li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .experience-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
             background: rgba(59, 130, 246, 0.1);
             color: var(--primary-color);
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        /* 响应式设计 */
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Honors */
+        .honor-list {
+            list-style: none;
+        }
+
+        .honor-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--bg-card);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .honor-list li:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .honor-name {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .honor-date {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -377,10 +459,6 @@
                 gap: 1rem;
             }
 
-            .project {
-                grid-template-columns: 1fr;
-            }
-
             .education-item {
                 flex-direction: column;
             }
@@ -388,9 +466,14 @@
             .education-date {
                 margin-top: 0.5rem;
             }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: start;
+            }
         }
 
-        /* 返回顶部按钮 */
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -417,205 +500,369 @@
             transform: translateY(-5px);
             background: var(--secondary-color);
         }
+
+        .text-secondary {
+            color: var(--text-secondary);
+        }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">张三的学术主页</div>
+            <div class="logo">Zeyuan Niu's Academic Homepage</div>
             <ul class="nav-links">
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#research">研究方向</a></li>
-                <li><a href="#publications">发表论文</a></li>
-                <li><a href="#projects">科研项目</a></li>
-                <li><a href="#contact">联系方式</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 主容器 -->
+    <!-- Main Container -->
     <div class="container">
-        <!-- 个人简介 -->
+        <!-- Hero Section -->
         <section id="about" class="hero">
-            <img src="https://via.placeholder.com/250x250/3b82f6/ffffff?text=照片" alt="个人照片" class="profile-img">
+            <img src="https://via.placeholder.com/250x250/3b82f6/ffffff?text=Photo" alt="Personal Photo" class="profile-img">
             <div class="hero-content">
-                <h1>张三</h1>
-                <p class="title">计算机科学与技术 副教授</p>
-                <p class="title">XX大学 人工智能研究院</p>
+                <h1>Zeyuan Niu</h1>
+                <p class="title">Master Student in Electrical Engineering</p>
+                <p class="title">Shanghai Jiao Tong University</p>
                 <p class="bio">
-                    我是XX大学人工智能研究院的副教授，主要研究方向包括机器学习、深度学习和计算机视觉。
-                    我的研究致力于开发高效的深度学习算法，并将其应用于实际问题的解决。
-                    在过去的几年中，我在顶级会议和期刊上发表了多篇论文，并主持了多个国家级科研项目。
+                    I am a Master's student in Electrical Engineering at Shanghai Jiao Tong University, advised by Prof. Qian Ai. 
+                    My research interests lie at the intersection of power systems and artificial intelligence, focusing on smart grids, 
+                    large language models (LLMs), machine learning, and graph theory applications in electrical networks. 
+                    I am particularly passionate about developing intelligent solutions for electric vehicle charging systems, 
+                    virtual power plants, and foundation models for road-power coupling networks.
                 </p>
                 <div class="contact-info">
-                    <a href="mailto:zhangsan@university.edu" class="contact-item">
-                        <span>📧</span> zhangsan@university.edu
+                    <a href="mailto:nzy0720@sjtu.edu.cn" class="contact-item">
+                        <span>📧</span> nzy0720@sjtu.edu.cn
+                    </a>
+                    <a href="tel:+8613319203489" class="contact-item">
+                        <span>📱</span> +86 133-1920-3489
                     </a>
                     <a href="#" class="contact-item">
-                        <span>📍</span> 北京市海淀区XX路XX号
+                        <span>🏫</span> SJTU, Shanghai, China
                     </a>
                     <a href="#" class="contact-item">
-                        <span>🔗</span> Google Scholar
-                    </a>
-                    <a href="#" class="contact-item">
-                        <span>💼</span> GitHub
+                        <span>🔬</span> Integrated Energy Cognition Research Group
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- 教育背景 -->
-        <section class="section">
-            <h2 class="section-title">教育背景</h2>
+        <!-- Education -->
+        <section id="education" class="section">
+            <h2 class="section-title">Educational Background</h2>
             <div class="card">
                 <div class="education-item">
                     <div class="education-content">
-                        <h3>博士，计算机科学与技术</h3>
-                        <p>清华大学 计算机科学与技术系</p>
-                        <p class="text-secondary">导师：李四 教授</p>
+                        <h3>Master of Electrical Engineering</h3>
+                        <p>Shanghai Jiao Tong University, School of Electrical Engineering</p>
+                        <p class="text-secondary">GPA: 3.55/4.00</p>
+                        <p class="text-secondary">Advisor: Prof. Qian Ai, Integrated Energy Cognition Research Group</p>
                     </div>
-                    <span class="education-date">2015 - 2020</span>
+                    <span class="education-date">2023.09 - 2026.06</span>
                 </div>
                 <div class="education-item">
                     <div class="education-content">
-                        <h3>学士，软件工程</h3>
-                        <p>北京大学 信息科学技术学院</p>
+                        <h3>Bachelor of Electrical Engineering and Automation</h3>
+                        <p>Shanghai Jiao Tong University, School of Electronic Information and Electrical Engineering</p>
+                        <p class="text-secondary">GPA: 3.68/4.00</p>
                     </div>
-                    <span class="education-date">2011 - 2015</span>
+                    <span class="education-date">2019.09 - 2023.06</span>
                 </div>
             </div>
         </section>
 
-        <!-- 研究方向 -->
+        <!-- Research Interests -->
         <section id="research" class="section">
-            <h2 class="section-title">研究方向</h2>
+            <h2 class="section-title">Research Interests</h2>
             <div class="research-grid">
                 <div class="card research-card">
-                    <h3>深度学习</h3>
-                    <p>研究神经网络架构设计、优化算法和模型压缩技术，致力于提高深度学习模型的效率和性能。</p>
+                    <h3>Power Systems & Smart Grids</h3>
+                    <p>Developing intelligent solutions for modern power systems, including virtual power plants, distributed energy resources management, and grid optimization algorithms.</p>
                 </div>
                 <div class="card research-card">
-                    <h3>计算机视觉</h3>
-                    <p>专注于图像识别、目标检测和语义分割等任务，开发适用于实际应用的视觉算法。</p>
+                    <h3>Large Language Models</h3>
+                    <p>Exploring applications of LLMs in power systems, including multi-agent frameworks for EV charging optimization and intelligent energy management systems.</p>
                 </div>
                 <div class="card research-card">
-                    <h3>强化学习</h3>
-                    <p>探索强化学习在机器人控制、游戏AI和决策优化中的应用，设计高效的学习算法。</p>
+                    <h3>Graph Neural Networks</h3>
+                    <p>Applying graph theory and GNNs to model complex relationships in power networks, including road-power coupling systems and spatial-temporal forecasting.</p>
+                </div>
+                <div class="card research-card">
+                    <h3>Electric Vehicle Integration</h3>
+                    <p>Researching intelligent charging strategies, load prediction, and optimal placement of EV charging stations in urban environments.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 发表论文 -->
+        <!-- Publications -->
         <section id="publications" class="section">
-            <h2 class="section-title">代表性论文</h2>
+            <h2 class="section-title">Publications</h2>
+            
             <div class="publication">
                 <div class="publication-title">
-                    Efficient Deep Learning Architecture for Real-time Object Detection
+                    EV charging system considering power dispatching based on multi-agent LLMs and CGAN
                 </div>
                 <div class="publication-authors">
-                    <strong>张三</strong>, 王五, 赵六, 李四
+                    <strong>Zeyuan Niu</strong>, Jiajun Li, Qian Ai, Jiajun Jiang, Qiuyan Yang, Hang Zhou
                 </div>
                 <div class="publication-venue">
-                    CVPR 2024 (CCF A类会议)
+                    IEEE Transactions on Intelligent Transportation Systems, Early Access (2025)
                 </div>
                 <div class="publication-links">
                     <a href="#">PDF</a>
-                    <a href="#">代码</a>
-                    <a href="#">项目主页</a>
+                    <a href="#">DOI</a>
                 </div>
             </div>
 
             <div class="publication">
                 <div class="publication-title">
-                    Learning Robust Features with Adversarial Training
+                    RoadPowerFM: Graphormer-JEPA based foundation model for road-power coupling network
                 </div>
                 <div class="publication-authors">
-                    王五, <strong>张三</strong>, 李四
+                    <strong>Zeyuan Niu</strong>, Yubo Tang, Jiajun Li, Qian Ai, Xing He
                 </div>
                 <div class="publication-venue">
-                    IEEE TPAMI 2023 (中科院一区，影响因子: 24.3)
+                    IEEE Transactions on Smart Grid, Early Access (2025)
                 </div>
                 <div class="publication-links">
                     <a href="#">PDF</a>
-                    <a href="#">补充材料</a>
+                    <a href="#">DOI</a>
                 </div>
             </div>
 
             <div class="publication">
                 <div class="publication-title">
-                    A Survey on Deep Reinforcement Learning: Algorithms and Applications
+                    Preliminary exploration of the application of large language models in power systems
                 </div>
                 <div class="publication-authors">
-                    <strong>张三</strong>, 赵六
+                    <strong>Zeyuan Niu</strong>, Jiajun Li, Qian Ai
                 </div>
                 <div class="publication-venue">
-                    ACM Computing Surveys 2023
+                    Power System Technology, 49(4), 1327–1336 (2024)
                 </div>
                 <div class="publication-links">
                     <a href="#">PDF</a>
-                    <a href="#">引用</a>
+                    <a href="#">DOI</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">
+                    Load prediction of multiple electric vehicle charging stations based on T-GCN
+                </div>
+                <div class="publication-authors">
+                    <strong>Zeyuan Niu</strong>, Jiajun Li, Qian Ai
+                </div>
+                <div class="publication-venue">
+                    IEEE ISGT-Asia 2024 (Accepted)
+                </div>
+                <div class="publication-links">
+                    <a href="#">PDF</a>
+                    <a href="#">Presentation</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">
+                    Study on the Operation Mode of Electric Vehicle-Based Virtual Power Plants Using TGCN-MPC
+                </div>
+                <div class="publication-authors">
+                    Gaoxiang Wu, Tao Cai, Zhichao He, <strong>Zeyuan Niu</strong>
+                </div>
+                <div class="publication-venue">
+                    2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2)
+                </div>
+                <div class="publication-links">
+                    <a href="#">PDF</a>
+                    <a href="#">Conference</a>
                 </div>
             </div>
         </section>
 
-        <!-- 科研项目 -->
+        <!-- Research Experience -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Research Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Graphormer-JEPA based Foundation Model for Road-Power Coupling Network</h3>
+                        <p class="text-secondary">IEEE Transactions on Smart Grid</p>
+                    </div>
+                    <span class="experience-date">2024.05 - 2025.05</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Developed a Road Power Foundation Model (RPFM) integrating Graphormer and JEPA to combine long-range graph attention with self-supervised embedding prediction</li>
+                    <li>Engineered a self-adaptive pretraining strategy using the Louvain algorithm with community-aware positional encoding, achieving a zero-shot F1 score of 0.7938 on EVCS location planning</li>
+                    <li>Implemented LoRA-based fine-tuning delivering average improvements of 11.40%, 3.36%, and 8.52% across multiple downstream tasks</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">EV Charging System with Multi-Agent LLMs and CGAN</h3>
+                        <p class="text-secondary">IEEE Transactions on Intelligent Transportation Systems</p>
+                    </div>
+                    <span class="experience-date">2024.01 - 2024.11</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Architected a Multi-Agent-LLM framework integrating User Agents, EVCS Agents, and a Negotiation Platform for dynamic optimization</li>
+                    <li>Designed a hybrid LLM-CGAN model to generate diverse user behavior and pricing data for fine-tuning</li>
+                    <li>Established an intelligent negotiation platform outperforming standard optimization models by 3.96% in overall system effectiveness</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Load Prediction of Multiple EV Charging Stations by T-GCN</h3>
+                        <p class="text-secondary">IEEE ISGT-Asia 2024</p>
+                    </div>
+                    <span class="experience-date">2023.10 - 2024.06</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Integrated graph convolution and GRU networks to capture spatial-temporal correlations, achieving 91.30% accuracy on 72-hour load forecasting</li>
+                    <li>Conducted grey correlation analysis to construct adjacency matrices representing spatial relationships between charging stations</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Project Experience -->
         <section id="projects" class="section">
-            <h2 class="section-title">科研项目</h2>
-            <div class="project card">
-                <img src="https://via.placeholder.com/200x150/60a5fa/ffffff?text=项目1" alt="项目图片" class="project-img">
-                <div class="project-content">
-                    <h3>国家自然科学基金面上项目</h3>
-                    <p><strong>项目名称：</strong>基于深度学习的医学图像智能诊断系统研究</p>
-                    <p><strong>项目编号：</strong>62172XXX</p>
-                    <p><strong>执行时间：</strong>2022.01 - 2025.12</p>
-                    <p><strong>项目简介：</strong>本项目旨在开发一个基于深度学习的医学图像自动诊断系统，提高疾病早期诊断的准确率。</p>
-                    <div class="project-tags">
-                        <span class="tag">深度学习</span>
-                        <span class="tag">医学图像</span>
-                        <span class="tag">人工智能</span>
+            <h2 class="section-title">Project Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Research on Key Technology of Mass Flexible Resource Scheduling in Virtual Power Plant</h3>
+                        <p class="text-secondary">State Grid Corporation of China (SGCC), Chongqing</p>
                     </div>
+                    <span class="experience-date">2023.01 - 2024.12</span>
                 </div>
+                <ul class="experience-list">
+                    <li>Researched feasible region identification technology for time-varying scheduling of flexible resources in VPPs</li>
+                    <li>Proposed AST-GCN (Attribute-Augmented Spatiotemporal Graph Convolutional Network) method achieving 95.53% accuracy</li>
+                </ul>
             </div>
 
-            <div class="project card">
-                <img src="https://via.placeholder.com/200x150/3b82f6/ffffff?text=项目2" alt="项目图片" class="project-img">
-                <div class="project-content">
-                    <h3>科技部重点研发计划</h3>
-                    <p><strong>项目名称：</strong>新一代人工智能关键技术研究</p>
-                    <p><strong>项目编号：</strong>2021YFB17XXXXX</p>
-                    <p><strong>执行时间：</strong>2021.05 - 2024.04</p>
-                    <p><strong>项目简介：</strong>研究新型神经网络架构和训练算法，提升人工智能系统的泛化能力和鲁棒性。</p>
-                    <div class="project-tags">
-                        <span class="tag">神经网络</span>
-                        <span class="tag">算法优化</span>
-                        <span class="tag">鲁棒性</span>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Research on Active Consumption and Cooperative Control of Distributed Resources</h3>
+                        <p class="text-secondary">SGCC, Shanghai</p>
+                    </div>
+                    <span class="experience-date">2023.09 - 2024.12</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Researched online aggregation of virtual power plant diversified distributed resources</li>
+                    <li>Constructed a unified state model for efficient information interaction and flexible energy coordination</li>
+                    <li>Published research findings in conference proceedings</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Research on Energy Storage Planning from Source-Grid-Load-Carbon Perspective</h3>
+                        <p class="text-secondary">SGCC, Guangdong</p>
+                    </div>
+                    <span class="experience-date">2023.12 - 2025.11</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Researching planning layout and benefit evaluation of source-side energy storage</li>
+                    <li>Proposed optimized joint configuration strategy achieving 9% reduction in total operation and investment cost</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Professional Skills</h2>
+            <div class="skills-grid">
+                <div class="card">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">C++</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Machine Learning Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">LlamaFactory</span>
+                        <span class="skill-tag">Dify</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English (TOEFL: 106/120)</span>
+                        <span class="skill-tag">Chinese (Native)</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 联系方式 -->
-        <section id="contact" class="section">
-            <h2 class="section-title">联系方式</h2>
+        <!-- Honors & Awards -->
+        <section id="honors" class="section">
+            <h2 class="section-title">Honors & Awards</h2>
             <div class="card">
-                <p><strong>电子邮箱：</strong>zhangsan@university.edu</p>
-                <p><strong>办公地址：</strong>北京市海淀区XX大学信息楼 512室</p>
-                <p><strong>办公电话：</strong>+86-10-6278XXXX</p>
-                <p><strong>个人主页：</strong><a href="#">https://zhangsan.university.edu.cn</a></p>
-                <p style="margin-top: 1rem;">
-                    <strong>欢迎对我的研究方向感兴趣的学生联系我！</strong>
-                    我每年招收2-3名博士生和3-4名硕士生。
-                </p>
+                <ul class="honor-list">
+                    <li>
+                        <span class="honor-name">Zhou Weigan & Ren Yuehua Scholarship</span>
+                        <span class="honor-date">2024.12</span>
+                    </li>
+                    <li>
+                        <span class="honor-name">Shanghai Jiao Tong University Professional Scholarship</span>
+                        <span class="honor-date">2024.12 & 2023.12</span>
+                    </li>
+                    <li>
+                        <span class="honor-name">Shanghai Jiao Tong University Excellent Scholarship</span>
+                        <span class="honor-date">2021.12 & 2020.12</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Other Information -->
+        <section id="other" class="section">
+            <h2 class="section-title">Other Information</h2>
+            <div class="card">
+                <p><strong>Working Topic:</strong> A Generalizable Physics-Informed and Graph-Based Method for Topology Identification in Unobservable Distribution Networks (@MIT-UF-NEU 2025 Summer Research Camp)</p>
+                <p style="margin-top: 1rem;"><strong>Student Service:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                    <li>Assistant to the Career Services Office, School of Electronic Information and Electrical Engineering</li>
+                    <li>Library Information Officer, Shanghai Jiao Tong University</li>
+                    <li>Team Leader of School's Football Team (2022)</li>
+                </ul>
             </div>
         </section>
     </div>
 
-    <!-- 返回顶部按钮 -->
+    <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
-        // 导航栏滚动效果
+        // Navigation scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -624,7 +871,7 @@
                 navbar.classList.remove('scrolled');
             }
 
-            // 返回顶部按钮
+            // Back to top button
             const backToTop = document.getElementById('backToTop');
             if (window.scrollY > 300) {
                 backToTop.classList.add('show');
@@ -633,7 +880,7 @@
             }
         });
 
-        // 平滑滚动
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -647,7 +894,7 @@
             });
         });
 
-        // 返回顶部
+        // Back to top
         document.getElementById('backToTop').addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -655,7 +902,7 @@
             });
         });
 
-        // 动态加载动画
+        // Animation observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
