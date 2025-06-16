@@ -276,23 +276,33 @@
 
         /* Publications */
         .publication {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
             padding: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: 15px;
             border-left: 3px solid var(--primary-color);
             transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            overflow: hidden;
         }
 
         .publication:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .publication-content {
+            flex: 1;
         }
 
         .publication-title {
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .publication-authors {
@@ -328,6 +338,40 @@
         .publication-links a:hover {
             background: var(--primary-color);
             color: white;
+        }
+
+        .publication-figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(96, 165, 250, 0.05));
+            border-radius: 10px;
+        }
+
+        .publication-figure img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-figure img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 当屏幕较小时，图片移到下方 */
+        @media (max-width: 900px) {
+            .publication {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-figure {
+                margin-top: 1rem;
+                max-width: 100%;
+            }
         }
 
         /* Research Experience */
@@ -471,6 +515,14 @@
                 flex-direction: column;
                 align-items: start;
             }
+
+            .publication {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-figure {
+                margin-top: 1rem;
+            }
         }
 
         /* Back to Top Button */
@@ -526,7 +578,7 @@
     <div class="container">
         <!-- Hero Section -->
         <section id="about" class="hero">
-            <img src="profile.jpg" alt="Personal Photo" class="profile-img">
+            <img src="https://via.placeholder.com/250x250/3b82f6/ffffff?text=Photo" alt="Personal Photo" class="profile-img">
             <div class="hero-content">
                 <h1>Zeyuan Niu</h1>
                 <p class="title">Master Student in Electrical Engineering</p>
@@ -611,14 +663,14 @@
                     EV charging system considering power dispatching based on multi-agent LLMs and CGAN
                 </div>
                 <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai, Jiamei Jiang, Qiunan Yang, Haojie Zhou
+                    <strong>Zeyuan Niu</strong>, Jiajun Li, Qian Ai, Jiajun Jiang, Qiuyan Yang, Hang Zhou
                 </div>
                 <div class="publication-venue">
                     IEEE Transactions on Intelligent Transportation Systems, Early Access (2025)
                 </div>
                 <div class="publication-links">
-                    <a href="EV_Charging_System_Considering_Power_Dispatching_Based_on_Multi-Agent_LLMs_and_CGAN.pdf">PDF</a>
-                    <a href="10.1109/TITS.2025.3564389">DOI</a>
+                    <a href="#">PDF</a>
+                    <a href="#">DOI</a>
                 </div>
             </div>
 
@@ -627,14 +679,14 @@
                     RoadPowerFM: Graphormer-JEPA based foundation model for road-power coupling network
                 </div>
                 <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Yihong Tang, Jiamei Li, Qian Ai, Xing He
+                    <strong>Zeyuan Niu</strong>, Yubo Tang, Jiajun Li, Qian Ai, Xing He
                 </div>
                 <div class="publication-venue">
                     IEEE Transactions on Smart Grid, Early Access (2025)
                 </div>
                 <div class="publication-links">
-                    <a href="RoadPowerFM_Graphormer-JEPA_based_Foundation_Model_for_Road-Power_Coupling_Network.pdf">PDF</a>
-                    <a href="10.1109/TSG.2025.3578842">DOI</a>
+                    <a href="#">PDF</a>
+                    <a href="#">DOI</a>
                 </div>
             </div>
 
@@ -643,13 +695,13 @@
                     Preliminary exploration of the application of large language models in power systems
                 </div>
                 <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai
+                    <strong>Zeyuan Niu</strong>, Jiajun Li, Qian Ai
                 </div>
                 <div class="publication-venue">
                     Power System Technology, 49(4), 1327–1336 (2024)
                 </div>
                 <div class="publication-links">
-                    <a href="LLMinPowerSystem.pdf">PDF</a>
+                    <a href="#">PDF</a>
                     <a href="#">DOI</a>
                 </div>
             </div>
@@ -659,13 +711,13 @@
                     Load prediction of multiple electric vehicle charging stations based on T-GCN
                 </div>
                 <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai
+                    <strong>Zeyuan Niu</strong>, Jiajun Li, Qian Ai
                 </div>
                 <div class="publication-venue">
                     IEEE ISGT-Asia 2024 (Accepted)
                 </div>
                 <div class="publication-links">
-                    <a href="2024262066.pdf">PDF</a>
+                    <a href="#">PDF</a>
                     <a href="#">Presentation</a>
                 </div>
             </div>
@@ -675,13 +727,13 @@
                     Study on the Operation Mode of Electric Vehicle-Based Virtual Power Plants Using TGCN-MPC
                 </div>
                 <div class="publication-authors">
-                    Guihong Wu, Tianyu Cai, Zhenkai He, <strong>Zeyuan Niu</strong>
+                    Gaoxiang Wu, Tao Cai, Zhichao He, <strong>Zeyuan Niu</strong>
                 </div>
                 <div class="publication-venue">
                     2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2)
                 </div>
                 <div class="publication-links">
-                    <a href="Study_on_the_Operation_Mode_of_Electric_Vehicle-Based_Virtual_Power_Plants_Using_TGCN-MPC.pdf">PDF</a>
+                    <a href="#">PDF</a>
                     <a href="#">Conference</a>
                 </div>
             </div>
@@ -919,6 +971,44 @@
         document.querySelectorAll('.section').forEach(section => {
             section.style.animationPlayState = 'paused';
             observer.observe(section);
+        });
+
+        // Click to view larger image
+        document.querySelectorAll('.publication-figure img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.title = 'Click to view larger';
+            img.addEventListener('click', function() {
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                const largeImg = document.createElement('img');
+                largeImg.src = this.src;
+                largeImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 10px;
+                    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+                `;
+                
+                overlay.appendChild(largeImg);
+                document.body.appendChild(overlay);
+                
+                overlay.addEventListener('click', function() {
+                    document.body.removeChild(overlay);
+                });
+            });
         });
     </script>
 </body>
