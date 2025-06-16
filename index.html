@@ -274,25 +274,34 @@
             font-size: 1.25rem;
         }
 
-        /* Publications */
+        /* Publications - Updated Styles */
         .publication {
-            padding: 1.5rem;
-            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
             background: var(--bg-card);
-            border-radius: 10px;
-            border-left: 3px solid var(--primary-color);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
             transition: all 0.3s ease;
+            align-items: center;
         }
 
         .publication:hover {
             transform: translateX(5px);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .publication-content {
+            flex: 1;
         }
 
         .publication-title {
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .publication-authors {
@@ -328,6 +337,52 @@
         .publication-links a:hover {
             background: var(--primary-color);
             color: white;
+        }
+
+        /* Publication Image */
+        .publication-image {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .publication-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Placeholder for missing images */
+        .publication-image.placeholder {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(96, 165, 250, 0.1));
+            position: relative;
+        }
+
+        .publication-image.placeholder::before {
+            content: '📊';
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .publication-image.placeholder::after {
+            content: 'Figure';
+            position: absolute;
+            bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         /* Research Experience */
@@ -444,6 +499,18 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 968px) {
+            .publication {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .publication-image {
+                height: 250px;
+                order: -1;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -607,82 +674,107 @@
             <h2 class="section-title">Publications</h2>
             
             <div class="publication">
-                <div class="publication-title">
-                    EV charging system considering power dispatching based on multi-agent LLMs and CGAN
+                <div class="publication-content">
+                    <div class="publication-title">
+                        EV charging system considering power dispatching based on multi-agent LLMs and CGAN
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai, Jiamei Jiang, Qiunan Yang, Haojie Zhou
+                    </div>
+                    <div class="publication-venue">
+                        IEEE Transactions on Intelligent Transportation Systems, Early Access (2025)
+                    </div>
+                    <div class="publication-links">
+                        <a href="EV_Charging_System_Considering_Power_Dispatching_Based_on_Multi-Agent_LLMs_and_CGAN.pdf">PDF</a>
+                        <a href="10.1109/TITS.2025.3564389">DOI</a>
+                    </div>
                 </div>
-                <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai, Jiamei Jiang, Qiunan Yang, Haojie Zhou
-                </div>
-                <div class="publication-venue">
-                    IEEE Transactions on Intelligent Transportation Systems, Early Access (2025)
-                </div>
-                <div class="publication-links">
-                    <a href="EV_Charging_System_Considering_Power_Dispatching_Based_on_Multi-Agent_LLMs_and_CGAN.pdf">PDF</a>
-                    <a href="10.1109/TITS.2025.3564389">DOI</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">
-                    RoadPowerFM: Graphormer-JEPA based foundation model for road-power coupling network
-                </div>
-                <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Yihong Tang, Jiamei Li, Qian Ai, Xing He
-                </div>
-                <div class="publication-venue">
-                    IEEE Transactions on Smart Grid, Early Access (2025)
-                </div>
-                <div class="publication-links">
-                    <a href="RoadPowerFM_Graphormer-JEPA_based_Foundation_Model_for_Road-Power_Coupling_Network.pdf">PDF</a>
-                    <a href="10.1109/TSG.2025.3578842">DOI</a>
+                <div class="publication-image">
+                    <img src="pub_images/ev_charging_system.jpg" alt="EV Charging System Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
                 </div>
             </div>
 
             <div class="publication">
-                <div class="publication-title">
-                    Preliminary exploration of the application of large language models in power systems
+                <div class="publication-content">
+                    <div class="publication-title">
+                        RoadPowerFM: Graphormer-JEPA based foundation model for road-power coupling network
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zeyuan Niu</strong>, Yihong Tang, Jiamei Li, Qian Ai, Xing He
+                    </div>
+                    <div class="publication-venue">
+                        IEEE Transactions on Smart Grid, Early Access (2025)
+                    </div>
+                    <div class="publication-links">
+                        <a href="RoadPowerFM_Graphormer-JEPA_based_Foundation_Model_for_Road-Power_Coupling_Network.pdf">PDF</a>
+                        <a href="10.1109/TSG.2025.3578842">DOI</a>
+                    </div>
                 </div>
-                <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai
-                </div>
-                <div class="publication-venue">
-                    Power System Technology, 49(4), 1327–1336 (2024)
-                </div>
-                <div class="publication-links">
-                    <a href="LLMinPowerSystem.pdf">PDF</a>
-                    <a href="#">DOI</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">
-                    Load prediction of multiple electric vehicle charging stations based on T-GCN
-                </div>
-                <div class="publication-authors">
-                    <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai
-                </div>
-                <div class="publication-venue">
-                    IEEE ISGT-Asia 2024 (Accepted)
-                </div>
-                <div class="publication-links">
-                    <a href="2024262066.pdf">PDF</a>
-                    <a href="#">Presentation</a>
+                <div class="publication-image">
+                    <img src="pub_images/roadpowerfm.jpg" alt="RoadPowerFM Model Architecture" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
                 </div>
             </div>
 
             <div class="publication">
-                <div class="publication-title">
-                    Study on the Operation Mode of Electric Vehicle-Based Virtual Power Plants Using TGCN-MPC
+                <div class="publication-content">
+                    <div class="publication-title">
+                        Preliminary exploration of the application of large language models in power systems
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai
+                    </div>
+                    <div class="publication-venue">
+                        Power System Technology, 49(4), 1327–1336 (2024)
+                    </div>
+                    <div class="publication-links">
+                        <a href="LLMinPowerSystem.pdf">PDF</a>
+                        <a href="#">DOI</a>
+                    </div>
                 </div>
-                <div class="publication-authors">
-                    Guihong Wu, Tianyu Cai, Zhenkai He, <strong>Zeyuan Niu</strong>
+                <div class="publication-image">
+                    <img src="pub_images/llm_power_system.jpg" alt="LLM in Power Systems Framework" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
                 </div>
-                <div class="publication-venue">
-                    2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2)
+            </div>
+
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        Load prediction of multiple electric vehicle charging stations based on T-GCN
+                    </div>
+                    <div class="publication-authors">
+                        <strong>Zeyuan Niu</strong>, Jiamei Li, Qian Ai
+                    </div>
+                    <div class="publication-venue">
+                        IEEE ISGT-Asia 2024 (Accepted)
+                    </div>
+                    <div class="publication-links">
+                        <a href="2024262066.pdf">PDF</a>
+                        <a href="#">Presentation</a>
+                    </div>
                 </div>
-                <div class="publication-links">
-                    <a href="Study_on_the_Operation_Mode_of_Electric_Vehicle-Based_Virtual_Power_Plants_Using_TGCN-MPC.pdf">PDF</a>
-                    <a href="#">Conference</a>
+                <div class="publication-image">
+                    <img src="pub_images/tgcn_prediction.jpg" alt="T-GCN Load Prediction Results" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-content">
+                    <div class="publication-title">
+                        Study on the Operation Mode of Electric Vehicle-Based Virtual Power Plants Using TGCN-MPC
+                    </div>
+                    <div class="publication-authors">
+                        Guihong Wu, Tianyu Cai, Zhenkai He, <strong>Zeyuan Niu</strong>
+                    </div>
+                    <div class="publication-venue">
+                        2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2)
+                    </div>
+                    <div class="publication-links">
+                        <a href="Study_on_the_Operation_Mode_of_Electric_Vehicle-Based_Virtual_Power_Plants_Using_TGCN-MPC.pdf">PDF</a>
+                        <a href="#">Conference</a>
+                    </div>
+                </div>
+                <div class="publication-image">
+                    <img src="pub_images/vpp_tgcn_mpc.jpg" alt="VPP Operation Mode with TGCN-MPC" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none';">
                 </div>
             </div>
         </section>
